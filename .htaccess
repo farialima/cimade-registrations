@@ -1,0 +1,17 @@
+
+RewriteOptions inherit
+
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^cimade\.farialima\.net$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.cimade\.farialima\.net$
+RewriteRule ^fle\/resultats$ "https\:\/\/cimade\.farialima\.net\/fle\/resultats\.php" [R=302,L]
+RewriteCond %{HTTP_HOST} ^cimade\.farialima\.net$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.cimade\.farialima\.net$
+RewriteRule ^benevoles\/resultats$ "https\:\/\/cimade\.farialima\.net\/benevoles\/resultats\.php" [R=302,L]
+RewriteCond %{HTTP_HOST} ^cimade\.farialima\.net$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.cimade\.farialima\.net$
+RewriteRule ^fle\/resultats\/$ "https\:\/\/cimade\.farialima\.net\/fle\/resultats\.php" [R=302,L]
+RewriteCond %{HTTP_HOST} ^cimade\.farialima\.net$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.cimade\.farialima\.net$
+RewriteRule ^benevoles\/resultats\/$ "https\:\/\/cimade\.farialima\.net\/benevoles\/resultats\.php" [R=302,L]
+

@@ -3,7 +3,7 @@ function complet($hour, $hours_count, $max) {
   return isset($hours_count[$hour]) && ($hours_count[$hour] >= $max);
 }
 
-// $no_meeting_html, $no_meeting_success_html, 
+// $no_meeting_html, $no_meeting_success_html,
 function do_page($csv_file, $days, $info_html, $success_html, $max, $unavailable_html = null) {
   if (!(is_writable($csv_file) && is_readable($csv_file))) {
     echo "<div class='error'>\n";
@@ -23,21 +23,22 @@ function do_page($csv_file, $days, $info_html, $success_html, $max, $unavailable
     }
     fclose($handle);
   }
-  
+
   $hours_count = array_count_values($hours);
-  
+
   $prenom = isset($_POST['prenom']) ? $_POST['prenom'] : "";
   $nom = isset($_POST['nom']) ? $_POST['nom'] : "";
   $telephone = isset($_POST['telephone']) ? $_POST['telephone'] : "";
   $email = isset($_POST['email']) ? $_POST['email'] : "";
   $horaire = isset($_POST['horaire']) ? $_POST['horaire'] : "";
+  $emailme = isset($_POST['emailme']) ? $_POST['emailme'] : "";
   $error = '';
-  
+
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($prenom) || empty($nom) || (strlen($prenom) < 2) || (strlen($nom) < 2)) {
        $error .= "<p>Entrez votre nom et prénom.</p>\n";
     }
-  
+
     $num = preg_replace("/[^0-9]/", "", $telephone);
     if ((strlen($num) < 6) && (!filter_var($email, FILTER_VALIDATE_EMAIL)) ) {
        $error .= "<p>Entrez un numéro de téléphone ou un email valide.</p>\n";
@@ -45,7 +46,7 @@ function do_page($csv_file, $days, $info_html, $success_html, $max, $unavailable
     if (empty($days)) {
       if ($horaire) {
          $error .= "<p>Il n'est plus possible de choisir un rendez-vous. A la place, donnez uniquement vos coordonnees et nous vous recontacterons.</p>\n";
-      }      
+      }
     }
     else {
       if (!$horaire) {
@@ -54,7 +55,7 @@ function do_page($csv_file, $days, $info_html, $success_html, $max, $unavailable
       elseif (complet($horaire, $hours_count, $max)) {
          $error .= "<p>Ce jour et heure (".$horaire.") est complet. Choisissez un autre jour et heure pour le rendez-vous.</p>\n";
       }
-      
+
       if (in_array($prenom . " ". $nom, $noms)) {
          $error .= "<p>Un rendez-vous a déjà été pris pour ce prénom et nom. Vous ne pouvez pas vous inscrire une deuxième fois. Si c’est une erreur, contactez-nous à <a href=\"mailto:lyon@lacimade.org\">lyon@lacimade.org</a>.</p>\n";
       }
@@ -70,7 +71,7 @@ function do_page($csv_file, $days, $info_html, $success_html, $max, $unavailable
 
     if (!$error) {
       $fp = fopen($csv_file, 'aw');
-      fputcsv($fp, array($prenom, $nom, $telephone, $email, $horaire, date("Y-m-d H:i:s", time())));
+      fputcsv($fp, array($prenom, $nom, $telephone, $email, $horaire, date("Y-m-d H:i:s", time()), $emailme));
       fclose($fp);
 
       if ($horaire) {
@@ -88,7 +89,7 @@ function do_page($csv_file, $days, $info_html, $success_html, $max, $unavailable
       }
     }
   } // ... "POST"
-  
+
   if (!($_SERVER["REQUEST_METHOD"] == "POST") || $error) {
     if (empty($days)) {
       echo $unavailable_html ?: (
@@ -98,7 +99,7 @@ function do_page($csv_file, $days, $info_html, $success_html, $max, $unavailable
           "Vous pouvez laisser vos nom, prénom, et téléphone ou email, ".
           "et nous vous contacterons si et quand nous en organiserons.</p>");
     }
-    else {  
+    else {
       echo $info_html;
     }
     echo "<p><p>\n";
@@ -120,6 +121,10 @@ function do_page($csv_file, $days, $info_html, $success_html, $max, $unavailable
    <label style="margin-left:1em" for="email">Email:</label>
    <input type="text" name="email" id="email" placeholder="nom@adresse.com" value="<?php echo htmlentities($email) ?>">
    <br/>
+   <div>
+     <input type="checkbox" id="emailme" name="emailme">
+     <label for="emailme">Ajoutez-moi &agrave; la liste email des sympathisants de la Cimade Lyon (quelques emails par mois au maximum)</label>
+   </div>
    <table class="horaire" border="3" cellspacing="4" align="left">
      <caption><input class="submit" style="" type="submit" value="<?php echo (empty($days) ? "Enregistrer" : "Confirmer le rendez-vous"); ?>"></caption>
      <tbody>
@@ -143,4 +148,3 @@ function do_page($csv_file, $days, $info_html, $success_html, $max, $unavailable
  </form>
  <?php  } // if (!($_SERVER["REQUEST_METHOD"] == "POST") || $error)
 } // function do_page($csv_file, $days, $hour_slots, $info_html, $success_html)
-

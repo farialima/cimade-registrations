@@ -46,7 +46,7 @@ window.onload = function () {
     var reader = new FileReader();
     reader.readAsText(request.response);
     reader.onload =  function(e) {
-      var csv = 'Pr&eacute;nom,Nom,T&eacute;l&eacute;phone,E-mail,Horaire,Cr&eacute;&eacute; le\n' + e.target.result
+      var csv = 'Pr&eacute;nom,Nom,T&eacute;l&eacute;phone,E-mail,Horaire,Cr&eacute;&eacute; le,Liste email\n' + e.target.result
       var data = Papa.parse(csv, {
         header: true,
         skipEmptyLines: true
@@ -66,6 +66,6 @@ window.onload = function () {
   request.send();
 }
   </script>
-  
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/handsontable/0.28.4/handsontable.full.min.css">
 </body>

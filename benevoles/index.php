@@ -17,15 +17,15 @@
    date_default_timezone_set('Europe/Paris');
    $current_date = new DateTime(date("Y-m-d H:i:s", time()));
    $days = array();
-   $days["Mardi 14 septembre"] = array("19h");
-   $days["Samedi 25 septembre"] = array("10h", "14h30");
+   //$days["Mardi 14 septembre"] = array("19h");
+   //$days["Samedi 25 septembre"] = array("10h", "14h30");
 
    if (($current_date > new DateTime('2020-10-28 01:00:00')) &&
        ($current_date < new DateTime('2020-11-11 12:00:00'))) {
        // disabled for now
        //$days['Mercredi 11 novembre'] = array("16h00", "18h30");
    }
-                        
+
    $csv_file = dirname(__FILE__).DIRECTORY_SEPARATOR.'rendezvous.csv';
 $details = "<p>Venez au 33 Rue Imbert-Colomès (Lyon 1er, métro Hotel de Ville) le jour et l’heure de la séance confirmée.".
            "N’oubliez pas votre masque ! Et <b>en cas de désistement, merci de le signaler par mail à ".

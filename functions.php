@@ -122,7 +122,7 @@ function do_page($csv_file, $days, $info_html, $success_html, $max, $unavailable
    <input type="text" name="email" id="email" placeholder="nom@adresse.com" value="<?php echo htmlentities($email) ?>">
    <br/>
    <div>
-     <input type="checkbox" id="emailme" name="emailme">
+     <input type="checkbox" id="emailme" name="emailme" checked="checked">
      <label for="emailme">Ajoutez-moi &agrave; la liste email des sympathisants de la Cimade Lyon (quelques emails par mois au maximum)</label>
    </div>
    <table class="horaire" border="3" cellspacing="4" align="left">

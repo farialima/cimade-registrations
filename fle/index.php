@@ -15,16 +15,16 @@
 <p></p>
 <p>Nous organisons de nouvelles sessions d'inscription aux cours de français. Ce sera:
   <ul>
-    <li>Lundi 3 janvier 2022, de 13h à 16h.</li>
-    <li>Vendredi 7 janvier, de 13h à 16h.</li>
-    <li>Samedi 8 janvie, de 13h à 16h.</li>
-    <li>Lundi 10 janvier, de 13h à 16h.</li>
-    <li>Vendredi 14 janvie, de 13h à 16h.</li>
-    <li>Samedi 15 janvier, de 13h à 16h.</li>
-    <>Lundi 28 février, de 13h à 16h.</li>
-    <li>Vendredi 4 mars, de 13h à 16h.</li>
-    <li>Samedi 5 mar, de 13h à 16h.</li>
-    <li>Lundi 11 avril, de 13h à 16h.</li>
+    <li>Lundi 3 janvier 2022, de 13h à 16h,</li>
+    <li>Vendredi 7 janvier, de 13h à 16h,</li>
+    <li>Samedi 8 janvier, de 13h à 16h,</li>
+    <li>Lundi 10 janvier, de 13h à 16h,</li>
+    <li>Vendredi 14 janvier, de 13h à 16h,</li>
+    <li>Samedi 15 janvier, de 13h à 16h,</li>
+    <li>Lundi 28 février, de 13h à 16h,</li>
+    <li>Vendredi 4 mars, de 13h à 16h,</li>
+    <li>Samedi 5 mars, de 13h à 16h,</li>
+    <li>Lundi 11 avril, de 13h à 16h,</li>
     <li>Vendredi 15 avril, de 13h à 16h.</li>
 </ul>
 </p>

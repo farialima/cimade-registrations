@@ -15,8 +15,6 @@
 <p></p>
 <p>Nous organisons de nouvelles sessions d'inscription aux cours de français. Ce sera:
   <ul>
-    <li>Mercredi 10 novembre 2021, de 14 à 17h.</li>
-    <li>Jeudi 11 novembre 2021, de 14 à 17h.</li>
     <li>Lundi 3 janvier 2022, de 13h à 16h.</li>
     <li>Vendredi 7 janvier, de 13h à 16h.</li>
     <li>Samedi 8 janvie, de 13h à 16h.</li>
